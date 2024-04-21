@@ -53,7 +53,8 @@ namespace ManageSD_WebApi.Controllers
         [HttpPost]
         public IActionResult PostCourse(Course newcourse)
         {
-            if (newcourse != null)
+           
+            if (newcourse != null && ModelState.IsValid)
             {
                 _courseRepo.Add(newcourse);
                 string url = Url.Link("CourseDetailsRoute", new { id = newcourse.Id });
